@@ -1,0 +1,39 @@
+﻿@model List<Product>
+
+    <h2 class="mb-5 text-center">List of Products</h2>
+    <form asp-action="Create" method="get">
+        <button type="submit" class="btn btn-outline-success">Create</button>
+        </form>
+<table class="table table-dotted align-middle">
+    <thead>
+        <tr class="fw-bold">
+            <td>Id</td>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Image</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.category.Name</td>
+                <td>
+                    <img src="@product.imagePath" alt="Uploaded Image" style="max-width: 60px; max-height: 60px;" />
+                </td>
+                <td>
+                    <!-- Delete Form -->
+                    <form asp-action="Delete" method="post"  style="display:inline;">
+
+                        <input type="hidden" name="id" value="@product.Id" />
+                        <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

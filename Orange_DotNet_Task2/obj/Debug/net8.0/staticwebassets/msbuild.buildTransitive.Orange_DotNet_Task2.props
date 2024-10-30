@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Orange_DotNet_Task2.props" />
+</Project>
